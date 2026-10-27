@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Resume Screener</title>
+  <meta name="description" content="Rank resumes against a job description using NLP.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <span class="logo-mark">R</span>
+        <span>Resume<strong>Screener</strong></span>
+      </a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#screen">Screen</a>
+        <a href="/docs" target="_blank">API</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero container">
+    <span class="pill">NLP powered candidate ranking</span>
+    <h1>Shortlist the right talent <span class="gradient-text">in seconds</span>, not hours.</h1>
+    <p class="subtitle">
+      Paste a job description, drop in resumes and get every candidate ranked by
+      skill match, content relevance and experience with a clear explanation of the score.
+    </p>
+    <div class="hero-actions">
+      <a href="#screen" class="btn btn-primary">Start screening</a>
+      <button type="button" class="btn btn-ghost" id="sample-btn">Try with sample data</button>
+    </div>
+  </header>
+
+  <section id="how" class="container steps">
+    <div class="step">
+      <span class="step-num">01</span>
+      <h3>Extract</h3>
+      <p>Text is pulled from PDF, DOCX and TXT resumes and cleaned for analysis.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">02</span>
+      <h3>Analyze</h3>
+      <p>Skills are detected with a curated taxonomy and documents are compared using TF-IDF vectors.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <h3>Rank</h3>
+      <p>Each candidate gets a weighted score, a verdict and a list of matched and missing skills.</p>
+    </div>
+  </section>
+
+  <main id="screen" class="container">
+    <form id="screen-form" class="panel">
+      <div class="form-grid">
+        <div class="field">
+          <label for="job-description">Job description</label>
+          <textarea id="job-description" name="job_description" rows="12"
+            placeholder="Paste the full job description including required skills and experience..."></textarea>
+        </div>
+
+        <div class="field">
+          <label>Resumes</label>
+          <label class="dropzone" id="dropzone" for="file-input">
+            <input type="file" id="file-input" multiple accept=".pdf,.docx,.txt" hidden>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>
+            </svg>
+            <span class="dropzone-title">Drag &amp; drop resumes here</span>
+            <span class="dropzone-hint">or click to browse &middot; PDF, DOCX, TXT &middot; max 20 files</span>
+          </label>
+          <ul id="file-list" class="file-list"></ul>
+        </div>
+      </div>
+
+      <p id="error" class="error" hidden></p>
+
+      <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+        <span class="btn-label">Screen candidates</span>
+        <span class="spinner" hidden></span>
+      </button>
+    </form>
+
+    <section id="results" hidden>
+      <div class="results-header">
+        <h2>Ranking</h2>
+        <p class="weights" id="weights"></p>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div id="result-list" class="result-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>AI Resume Screener &middot; built with FastAPI, scikit-learn and vanilla JS</p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
