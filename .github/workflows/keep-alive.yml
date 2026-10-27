@@ -1,0 +1,17 @@
+# Backup for app/keep_alive.py: wakes the Render instance up if it ever
+# restarts or goes to sleep. Set the APP_URL repository variable to the
+# deployed URL (Settings -> Secrets and variables -> Actions -> Variables).
+name: Keep alive
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    if: ${{ vars.APP_URL != '' }}
+    steps:
+      - name: Ping health endpoint
+        run: curl --fail --silent --show-error --retry 3 --retry-delay 20 --max-time 90 "${{ vars.APP_URL }}/api/health"

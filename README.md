@@ -131,6 +131,16 @@ pytest
 The repo includes a `render.yaml`, so it can be deployed on [Render](https://render.com) for free:
 **New → Blueprint → select this repository**. Any platform that runs Docker works as well.
 
+### Keeping the free instance awake
+
+Render's free plan puts a service to sleep after 15 minutes without traffic. Two things prevent that:
+
+- **Self ping** (`app/keep_alive.py`): while the app runs, it calls its own `/api/health` endpoint every
+  5 minutes. It turns on automatically on Render (using `RENDER_EXTERNAL_URL`) and stays off locally.
+  On other hosts set `KEEP_ALIVE_URL`; change the interval with `KEEP_ALIVE_INTERVAL` (seconds).
+- **GitHub Actions backup** (`.github/workflows/keep-alive.yml`): pings the app every 10 minutes so it
+  wakes up again after a restart. Add a repository variable `APP_URL` with the deployed URL to enable it.
+
 ## Limitations and future work
 
 - TF-IDF matches words, not meaning, so "ML" and "model training" are not seen as related.
