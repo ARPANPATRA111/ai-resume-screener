@@ -1,0 +1,21 @@
+Priya Sharma
+priya.sharma@example.com | Bengaluru, India
+
+Summary
+Machine learning engineer with 3 years of experience building NLP and Generative AI
+applications. Comfortable taking models from notebook to production.
+
+Experience
+ML Engineer, DataWorks Labs (2022 - Present)
+- Built a RAG based support assistant using LangChain, OpenAI GPT models and a FAISS vector database
+- Fine-tuned Hugging Face transformers for document classification with PyTorch
+- Served models with FastAPI, packaged with Docker and deployed on AWS EC2
+- Set up CI/CD with GitHub Actions for automated testing and deployment
+
+Projects
+- Resume parser using spaCy style NLP and scikit-learn
+- Sales forecasting with Pandas, NumPy and time series models
+
+Skills
+Python, SQL, PyTorch, scikit-learn, LangChain, Hugging Face, Prompt Engineering,
+Docker, AWS, Git, REST APIs, Communication, Problem Solving

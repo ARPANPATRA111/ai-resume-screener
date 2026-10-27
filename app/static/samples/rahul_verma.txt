@@ -1,0 +1,21 @@
+Rahul Verma
+rahul.verma@example.com | Pune, India
+
+Summary
+Data analyst with 1 year of experience turning raw data into business insights.
+Moving into machine learning and NLP through personal projects.
+
+Experience
+Data Analyst, RetailCo (2024 - Present)
+- Wrote SQL queries on PostgreSQL to build weekly sales reports
+- Cleaned datasets with Pandas and NumPy
+- Built Power BI dashboards for the leadership team
+
+Projects
+- Customer churn prediction with scikit-learn, served through a small Flask REST API
+- Sentiment analysis of product reviews using NLP and TensorFlow
+- Dockerized the churn model for a college hackathon
+
+Skills
+Python, SQL, Pandas, NumPy, scikit-learn, TensorFlow, Flask, Docker, Git,
+Data Visualization, Statistics, Teamwork, Problem Solving

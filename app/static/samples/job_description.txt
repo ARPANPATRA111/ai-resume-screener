@@ -1,0 +1,19 @@
+Job Title: AI/ML Engineer
+
+We are looking for an AI/ML Engineer to build intelligent features for our products.
+You will design, train and deploy machine learning models and work closely with the
+product and backend teams.
+
+Responsibilities
+- Build NLP and Generative AI features using LLMs, prompt engineering and RAG pipelines
+- Train and evaluate models with scikit-learn, PyTorch or TensorFlow
+- Clean and analyse data with Pandas and NumPy
+- Expose models through REST APIs built with FastAPI or Flask
+- Containerize services with Docker and deploy them on AWS
+
+Requirements
+- 2+ years of experience in machine learning or data science
+- Strong Python and SQL skills
+- Hands-on experience with Hugging Face, LangChain or vector databases
+- Familiarity with Git and CI/CD
+- Good communication and problem solving skills

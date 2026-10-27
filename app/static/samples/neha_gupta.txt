@@ -1,0 +1,14 @@
+Neha Gupta
+neha.gupta@example.com | Indore, India
+
+Summary
+Frontend developer with 4 years of experience building responsive web applications.
+
+Experience
+Frontend Developer, PixelSoft (2021 - Present)
+- Built dashboards in React and TypeScript
+- Integrated REST APIs and improved page load time by 40%
+- Wrote reusable UI components with HTML, CSS and Tailwind
+
+Skills
+JavaScript, TypeScript, React, Node.js, HTML/CSS, Git, Communication, Teamwork
