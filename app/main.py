@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 from dataclasses import asdict
 from pathlib import Path
 
@@ -5,6 +6,7 @@ from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
+from app.keep_alive import start_keep_alive
 from app.parser import UnsupportedFileError, extract_text
 from app.scorer import WEIGHTS, rank_resumes
 
@@ -12,7 +14,16 @@ STATIC_DIR = Path(__file__).parent / "static"
 MAX_FILES = 20
 MAX_FILE_SIZE = 5 * 1024 * 1024  # 5 MB
 
-app = FastAPI(title="AI Resume Screener", version="1.0.0")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    task = start_keep_alive()
+    yield
+    if task:
+        task.cancel()
+
+
+app = FastAPI(title="AI Resume Screener", version="1.0.0", lifespan=lifespan)
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
